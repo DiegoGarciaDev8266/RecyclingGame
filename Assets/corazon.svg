@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <path d="M32,54 C32,54 8,38 8,22 C8,14 14,8 22,8 C26,8 30,10 32,14 C34,10 38,8 42,8 C50,8 56,14 56,22 C56,38 32,54 32,54 Z" fill="#e02020" stroke="#a01010" stroke-width="1.5"/>
+  <path d="M32,54 C32,54 8,38 8,22 C8,14 14,8 22,8 C26,8 30,10 32,14 C34,10 38,8 42,8 C50,8 56,14 56,22 C56,38 32,54 32,54 Z" fill="none" stroke="#c01818" stroke-width="1"/>
+  <!-- Brillo -->
+  <path d="M18,16 Q22,12 28,14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  <!-- Sombra interna izquierda -->
+  <path d="M32,54 C32,54 8,38 8,22 C8,14 14,8 22,8 C26,8 30,10 32,14 Z" fill="#c01818" opacity="0.3"/>
+</svg>
