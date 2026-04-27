@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://drw1umatko36d"]
+
+[ext_resource type="Script" uid="uid://bedakwkanawam" path="res://Scripsts/pantalla_inicio.gd" id="1_qeqs3"]
+[ext_resource type="Texture2D" uid="uid://jsbnc3sgy5ve" path="res://Assets/pantalla_inicio.svg" id="2_8elct"]
+
+[node name="PantallaInicio" type="Node2D"]
+script = ExtResource("1_qeqs3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8elct")
+
+[node name="BtnJugar" type="Button" parent="CanvasLayer"]
+offset_left = 531.0
+offset_top = 446.0
+offset_right = 607.0
+offset_bottom = 477.0
+text = "▶ JUGAR"
+
+[connection signal="pressed" from="CanvasLayer/BtnJugar" to="." method="_on_btn_jugar_pressed"]

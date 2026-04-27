@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <path d="M25,14 L25,20 Q18,24 17,32 L17,50 Q17,55 22,55 L42,55 Q47,55 47,50 L47,32 Q46,24 39,20 L39,14 Z" fill="#a8c8e8" fill-opacity="0.7" stroke="#6090b8" stroke-width="1.5"/>
+  <rect x="25" y="10" width="14" height="6" rx="2" fill="#8ab0d0" stroke="#6090b8" stroke-width="1"/>
+  <rect x="26" y="6" width="12" height="6" rx="3" fill="#e04040" stroke="#a02020" stroke-width="1.5"/>
+  <path d="M20,32 Q20,24 25,21 L25,52 Q20,50 20,44 Z" fill="white" opacity="0.2"/>
+  <rect x="19" y="30" width="26" height="16" rx="2" fill="#4060c0" stroke="#2040a0" stroke-width="1"/>
+  <text x="32" y="41" font-size="7" fill="white" text-anchor="middle" font-family="sans-serif" font-weight="bold">PET</text>
+  <line x1="17" y1="44" x2="47" y2="44" stroke="#6090b8" stroke-width="0.8" opacity="0.4"/>
+  <line x1="17" y1="48" x2="47" y2="48" stroke="#6090b8" stroke-width="0.8" opacity="0.4"/>
+</svg>
