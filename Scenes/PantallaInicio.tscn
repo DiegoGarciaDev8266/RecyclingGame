@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drw1umatko36d"]
 
-[ext_resource type="Script" uid="uid://bedakwkanawam" path="res://Scripsts/pantalla_inicio.gd" id="1_qeqs3"]
+[ext_resource type="Script" uid="uid://bedakwkanawam" path="res://Scripts/pantalla_inicio.gd" id="1_qeqs3"]
 [ext_resource type="Texture2D" uid="uid://jsbnc3sgy5ve" path="res://Assets/pantalla_inicio.svg" id="2_8elct"]
 
 [node name="PantallaInicio" type="Node2D"]
