@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bogx72xkftxw"]
+
+[ext_resource type="Shader" uid="uid://ucgvk0cjight" path="res://Shaders/sombra.gdshader" id="1_sp0g3"]
+
+[resource]
+shader = ExtResource("1_sp0g3")
+shader_parameter/offset = Vector2(4, 4)
+shader_parameter/color_sombra = Color(0, 0, 0, 0.4)

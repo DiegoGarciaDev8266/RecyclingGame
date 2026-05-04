@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://sri6sak15xpt"]
+
+[ext_resource type="Shader" uid="uid://ckyclphyp7w3y" path="res://Shaders/brillo.gdshader" id="1_1j8vi"]
+
+[resource]
+shader = ExtResource("1_1j8vi")
+shader_parameter/intensidad = 0.4

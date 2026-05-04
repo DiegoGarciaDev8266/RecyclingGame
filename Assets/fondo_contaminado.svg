@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1152" height="648" viewBox="0 0 1152 648">
+  <defs>
+    <linearGradient id="cieloS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#5a5040"/>
+    </linearGradient>
+    <linearGradient id="tierraS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a3a28"/>
+      <stop offset="100%" stop-color="#2a1a0a"/>
+    </linearGradient>
+  </defs>
+  <!-- Cielo oscuro -->
+  <rect width="1152" height="648" fill="url(#cieloS)"/>
+  <!-- Sol tapado -->
+  <circle cx="950" cy="120" r="60" fill="#aa8820" opacity="0.4"/>
+  <circle cx="950" cy="120" r="90" fill="#886610" opacity="0.15"/>
+  <!-- Nubes de smog -->
+  <ellipse cx="200" cy="100" rx="120" ry="55" fill="#5a5040" opacity="0.9"/>
+  <ellipse cx="300" cy="80" rx="100" ry="48" fill="#4a4030" opacity="0.95"/>
+  <ellipse cx="150" cy="115" rx="90" ry="42" fill="#6a5a48" opacity="0.85"/>
+  <ellipse cx="600" cy="90" rx="130" ry="52" fill="#5a5040" opacity="0.9"/>
+  <ellipse cx="700" cy="70" rx="110" ry="46" fill="#4a4030" opacity="0.9"/>
+  <ellipse cx="900" cy="85" rx="120" ry="50" fill="#5a5040" opacity="0.85"/>
+  <!-- Chimeneas humo -->
+  <rect x="340" y="300" width="30" height="180" fill="#2a2a2a"/>
+  <ellipse cx="355" cy="290" rx="25" ry="60" fill="#4a4040" opacity="0.8"/>
+  <ellipse cx="355" cy="240" rx="35" ry="70" fill="#3a3030" opacity="0.7"/>
+  <rect x="500" y="320" width="25" height="160" fill="#2a2a2a"/>
+  <ellipse cx="512" cy="310" rx="22" ry="55" fill="#4a4040" opacity="0.8"/>
+  <ellipse cx="512" cy="265" rx="30" ry="65" fill="#3a3030" opacity="0.7"/>
+  <!-- Tierra seca -->
+  <rect y="480" width="1152" height="168" fill="url(#tierraS)"/>
+  <!-- Grietas en tierra -->
+  <path d="M100,500 Q150,510 200,505 Q250,500 300,510" fill="none" stroke="#1a0a00" stroke-width="2" opacity="0.6"/>
+  <path d="M500,495 Q560,508 620,500 Q680,492 740,505" fill="none" stroke="#1a0a00" stroke-width="2" opacity="0.6"/>
+  <!-- Árboles muertos -->
+  <rect x="80" y="360" width="15" height="120" fill="#3a2a18"/>
+  <path d="M87,380 L60,340 M87,380 L115,335 M87,395 L55,370 M87,395 L118,365" fill="none" stroke="#3a2a18" stroke-width="5"/>
+  <rect x="1020" y="355" width="15" height="125" fill="#3a2a18"/>
+  <path d="M1027,375 L1000,335 M1027,375 L1055,330 M1027,390 L995,365 M1027,390 L1058,360" fill="none" stroke="#3a2a18" stroke-width="5"/>
+  <!-- Basura en el suelo -->
+  <rect x="400" y="488" width="20" height="14" rx="2" fill="#6a4a20" opacity="0.8"/>
+  <circle cx="450" cy="492" r="8" fill="#4a6a20" opacity="0.7"/>
+  <rect x="700" y="485" width="16" height="18" rx="2" fill="#6a4a20" opacity="0.8"/>
+  <circle cx="750" cy="490" r="7" fill="#4a4a4a" opacity="0.7"/>
+  <!-- Partículas de smog flotando -->
+  <circle cx="200" cy="200" r="4" fill="#6a6040" opacity="0.5"/>
+  <circle cx="400" cy="180" r="5" fill="#5a5030" opacity="0.4"/>
+  <circle cx="700" cy="220" r="4" fill="#6a6040" opacity="0.5"/>
+  <circle cx="900" cy="190" r="6" fill="#5a5030" opacity="0.4"/>
+  <circle cx="1050" cy="210" r="4" fill="#6a6040" opacity="0.45"/>
+</svg>
