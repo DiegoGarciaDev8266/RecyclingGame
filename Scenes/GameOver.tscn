@@ -1,26 +1,45 @@
 [gd_scene load_steps=3 format=3 uid="uid://detwf1pqqrl2n"]
 
 [ext_resource type="Script" uid="uid://b1jt6u3tmge66" path="res://Scripts/game_over.gd" id="1_k52d1"]
-[ext_resource type="Texture2D" uid="uid://dnused51nksi7" path="res://Assets/pantalla_gameover.svg" id="2_ktc4i"]
+[ext_resource type="Texture2D" uid="uid://vcsj4vaedqjb" path="res://Assets/fondo_limpio.png" id="2_k52d1"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_k52d1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScreenOver" type="TextureRect" parent="CanvasLayer"]
+[node name="FondoGameOver" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ktc4i")
+texture = ExtResource("2_k52d1")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="PuntajeFInal" type="Label" parent="CanvasLayer"]
-offset_left = 442.0
-offset_top = 254.0
-offset_right = 685.0
-offset_bottom = 311.0
+[node name="TituloLabel" type="Label" parent="CanvasLayer"]
+offset_left = 292.0
+offset_top = 110.0
+offset_right = 832.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 48
+text = "\"!Ganaste¡\" \"GameOver"
+horizontal_alignment = 1
+
+[node name="PuntajeFinal" type="Label" parent="CanvasLayer"]
+offset_left = 440.0
+offset_top = 237.0
+offset_right = 683.0
+offset_bottom = 294.0
+
+[node name="MensajeLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_bottom = 0.018000001
+offset_left = 362.0
+offset_top = 360.0
+offset_right = 770.0
+offset_bottom = 426.336
 
 [node name="BtnReintentar" type="Button" parent="CanvasLayer"]
 process_mode = 3

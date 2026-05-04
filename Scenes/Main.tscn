@@ -1,87 +1,103 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsiuu86xciaov"]
+[gd_scene load_steps=16 format=3 uid="uid://dsiuu86xciaov"]
 
 [ext_resource type="Script" uid="uid://bij352oi6xxey" path="res://Scripts/Main.gd" id="1_idj7w"]
-[ext_resource type="Texture2D" uid="uid://dr3s6cverwv26" path="res://Assets/Banda.png" id="1_r150o"]
-[ext_resource type="Shader" uid="uid://bty04qv8jydnc" path="res://Shader/contaminacion.gdshader" id="2_50glp"]
-[ext_resource type="Script" uid="uid://44hvvwh1idu0" path="res://Scripts/banda_transportadora.gd" id="2_kln2b"]
-[ext_resource type="Texture2D" uid="uid://fpdhsejdey8s" path="res://Assets/cesto_carton.svg" id="4_jw32o"]
-[ext_resource type="Texture2D" uid="uid://c0assmk4k5i0p" path="res://Assets/cesto_vidrio.svg" id="5_50glp"]
-[ext_resource type="Texture2D" uid="uid://b25cl2eyinku" path="res://Assets/cesto_plastico.svg" id="6_vy5pj"]
+[ext_resource type="Shader" uid="uid://bty04qv8jydnc" path="res://Shaders/contaminacion.gdshader" id="2_50glp"]
+[ext_resource type="Texture2D" uid="uid://cj3jxnixk2buc" path="res://Assets/9246dde5-f274-4c91-9a4d-7389bc4d827a-removebg-preview.png" id="7_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://dd4ww34do3ovr" path="res://Assets/corazon.svg" id="7_jw32o"]
+[ext_resource type="Texture2D" uid="uid://kfuhdnj8smod" path="res://Assets/a29a59eb-6be1-4fc1-ab7f-0ed3291f1350-removebg-preview.png" id="8_4kpch"]
+[ext_resource type="Texture2D" uid="uid://vcsj4vaedqjb" path="res://Assets/fondo_limpio.png" id="8_50glp"]
+[ext_resource type="Texture2D" uid="uid://uiotjss3x4t6" path="res://Assets/fondo_contaminado.svg" id="9_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://dlufjyjsq4mh6" path="res://Assets/0628d632-6051-4880-9e5a-f4482eb16be6-removebg-preview.png" id="9_grg3l"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vy5pj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpch"]
 shader = ExtResource("2_50glp")
+shader_parameter/contaminacion = 0.0
+shader_parameter/tiempo = 0.0
+shader_parameter/fondo_contaminado = ExtResource("9_bmxlf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
-size = Vector2(120, 120)
+size = Vector2(159, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
-size = Vector2(120, 120)
+size = Vector2(165, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgh2o"]
-size = Vector2(120, 120)
+size = Vector2(144, 182)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbw6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kpch"]
+bg_color = Color(0, 0.80412424, 0.8045332, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grg3l"]
+bg_color = Color(0.1764706, 0.5411765, 0.1254902, 1)
 
 [node name="Node2D(Main)" type="Node2D"]
 script = ExtResource("1_idj7w")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_vy5pj")
+[node name="Fondo" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4kpch")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_right = 1152.0
 offset_bottom = 648.0
-
-[node name="BandaTransportadora" type="Node2D" parent="."]
-position = Vector2(30, 200)
-script = ExtResource("2_kln2b")
-
-[node name="Sprite2D" type="Sprite2D" parent="BandaTransportadora"]
-position = Vector2(541.25, 129)
-scale = Vector2(1.3578616, 1)
-texture = ExtResource("1_r150o")
-
-[node name="SpawnPoint" type="Marker2D" parent="BandaTransportadora"]
-position = Vector2(1200, 125)
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_50glp")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Cestos" type="Node2D" parent="."]
 
-[node name="CestoCarton" type="Area2D" parent="Cestos"]
+[node name="Orga_Apro" type="Area2D" parent="Cestos"]
 position = Vector2(250, 480)
 metadata/tipo = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Cestos/CestoCarton"]
-texture = ExtResource("4_jw32o")
+[node name="Sprite2D" type="Sprite2D" parent="Cestos/Orga_Apro"]
+position = Vector2(-8.042305, 82)
+scale = Vector2(0.6341008, 0.48044693)
+texture = ExtResource("7_bmxlf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/CestoCarton"]
-position = Vector2(2, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/Orga_Apro"]
+position = Vector2(-13.5, 80)
 shape = SubResource("RectangleShape2D_idj7w")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="CestoVidrio" type="Area2D" parent="Cestos"]
+[node name="Apro" type="Area2D" parent="Cestos"]
 position = Vector2(550, 480)
 metadata/tipo = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Cestos/CestoVidrio"]
-texture = ExtResource("5_50glp")
+[node name="Sprite2D" type="Sprite2D" parent="Cestos/Apro"]
+position = Vector2(3.5220098, 82.7615)
+scale = Vector2(0.66774637, 0.4959199)
+texture = ExtResource("8_4kpch")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/CestoVidrio"]
-position = Vector2(1.5, 6)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/Apro"]
+position = Vector2(3.5, 81)
 shape = SubResource("RectangleShape2D_kln2b")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="CestoPlastico" type="Area2D" parent="Cestos"]
+[node name="No_Apro" type="Area2D" parent="Cestos"]
 position = Vector2(850, 480)
 metadata/tipo = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Cestos/CestoPlastico"]
-texture = ExtResource("6_vy5pj")
+[node name="Sprite2D" type="Sprite2D" parent="Cestos/No_Apro"]
+position = Vector2(32, 84)
+scale = Vector2(0.5890411, 0.5223464)
+texture = ExtResource("9_grg3l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/CestoPlastico"]
-position = Vector2(-2, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cestos/No_Apro"]
+position = Vector2(34, 82)
 shape = SubResource("RectangleShape2D_rgh2o")
 debug_color = Color(1, 1, 1, 0.41960785)
 
+[node name="TimerSpawn" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="PuntajeLabel" type="Label" parent="CanvasLayer"]
 offset_left = 50.0
@@ -126,7 +142,11 @@ offset_bottom = 356.0
 text = "\"¡Correcto!\" / \"¡Error!\""
 label_settings = SubResource("LabelSettings_pbw6q")
 
-[node name="TimerSpawn" type="Timer" parent="."]
-wait_time = 2.5
-one_shot = true
-autostart = true
+[node name="BarraMeta" type="ProgressBar" parent="CanvasLayer"]
+custom_minimum_size = Vector2(400, 25)
+offset_left = 394.0
+offset_top = 2.0
+offset_right = 794.0
+offset_bottom = 29.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4kpch")
+theme_override_styles/fill = SubResource("StyleBoxFlat_grg3l")

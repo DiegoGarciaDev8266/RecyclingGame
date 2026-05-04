@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://drw1umatko36d"]
+[gd_scene load_steps=5 format=3 uid="uid://drw1umatko36d"]
 
 [ext_resource type="Script" uid="uid://bedakwkanawam" path="res://Scripts/pantalla_inicio.gd" id="1_qeqs3"]
-[ext_resource type="Texture2D" uid="uid://jsbnc3sgy5ve" path="res://Assets/pantalla_inicio.svg" id="2_8elct"]
+[ext_resource type="Texture2D" uid="uid://dew8f2qkhpfy0" path="res://Assets/backgroundColorForest.png" id="2_qeqs3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qeqs3"]
+bg_color = Color(0, 0.7255973, 0.19548908, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8elct"]
+bg_color = Color(0.1764706, 0.41568628, 0.1764706, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.54509807, 0.27058825, 0.07450981, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
 
 [node name="PantallaInicio" type="Node2D"]
 script = ExtResource("1_qeqs3")
@@ -14,13 +38,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8elct")
+texture = ExtResource("2_qeqs3")
+expand_mode = 1
 
-[node name="BtnJugar" type="Button" parent="CanvasLayer"]
-offset_left = 531.0
-offset_top = 446.0
-offset_right = 607.0
-offset_bottom = 477.0
-text = "▶ JUGAR"
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 506.0
+offset_top = 39.0
+offset_right = 658.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.889616, 0.90657485, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qeqs3")
+text = "DIFICULTAD"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/BtnJugar" to="." method="_on_btn_jugar_pressed"]
+[node name="BtnFacil" type="Button" parent="CanvasLayer"]
+offset_left = 92.0
+offset_top = 175.0
+offset_right = 239.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
+text = "🌱 FÁCIL"
+icon_alignment = 2
+
+[node name="BtnNormal" type="Button" parent="CanvasLayer"]
+offset_left = 512.0
+offset_top = 177.0
+offset_right = 659.0
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
+text = "♻️ Normal"
+icon_alignment = 2
+metadata/_edit_group_ = true
+
+[node name="BtnDificil" type="Button" parent="CanvasLayer"]
+offset_left = 887.0
+offset_top = 165.0
+offset_right = 1034.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
+text = "☠️ Difícil"
+icon_alignment = 2
+
+[node name="BtnSupervivencia" type="Button" parent="CanvasLayer"]
+offset_left = 513.0
+offset_top = 378.0
+offset_right = 660.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
+text = "♾ Supervivencia"
+icon_alignment = 2
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="CanvasLayer/BtnFacil" to="." method="_on_btn_facil_pressed"]
+[connection signal="pressed" from="CanvasLayer/BtnNormal" to="." method="_on_btn_normal_pressed"]
+[connection signal="pressed" from="CanvasLayer/BtnDificil" to="." method="_on_btn_dificil_pressed"]
+[connection signal="pressed" from="CanvasLayer/BtnSupervivencia" to="." method="_on_btn_supervivencia_pressed"]
