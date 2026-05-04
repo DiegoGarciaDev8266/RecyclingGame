@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	GameState.resetear()
+	MusicManager.play_menu()
 
 func _on_btn_facil_pressed():
 	GameState.dificultad = 1
@@ -18,7 +19,7 @@ func _on_btn_dificil_pressed():
 	GameState.modo_supervivencia = false
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 
-func _on_btn_supervivencia_pressed():  # ← nuevo botón
+func _on_btn_supervivencia_pressed():
 	GameState.dificultad = 3
 	GameState.modo_supervivencia = true
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

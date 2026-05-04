@@ -59,7 +59,6 @@ const CONFIG = {
 	}
 }
 
-# Variables modo supervivencia
 var surv_velocidad := 150.0
 var surv_spawn_time := 2.5
 var surv_max_objetos := 3
@@ -69,7 +68,7 @@ const SURV_SPAWN_MIN := 0.4
 
 var puntaje := 0
 var vidas := 3
-var nivel_contaminacion := 0.5
+var nivel_contaminacion := 0.0
 var material_fondo: ShaderMaterial
 var item_arrastrado = null
 var offset_arrastre := Vector2.ZERO
@@ -106,6 +105,7 @@ func _ready():
 		nivel_label.text = "♾ Supervivencia"
 		barra_meta.visible = false
 		timer_spawn.wait_time = surv_spawn_time
+	MusicManager.play_game()
 
 func _configurar_nivel():
 	var config = CONFIG[GameState.dificultad]
@@ -113,7 +113,7 @@ func _configurar_nivel():
 		cesto.visible = config.cestos_activos.has(cesto.name)
 	barra_meta.max_value = config.meta
 	barra_meta.value = 0
-	nivel_label.text = ["", "Facil", "Normal", "Dificil"][GameState.dificultad]
+	nivel_label.text = ["", "Fácil", "Normal", "Difícil"][GameState.dificultad]
 	for cesto in $Cestos.get_children():
 		if NOMBRE_CESTOS.has(cesto.name):
 			cesto.set_meta("tipo", NOMBRE_CESTOS[cesto.name])
@@ -140,6 +140,7 @@ func _verificar_objetos_fuera():
 			objetos_activos.erase(item)
 			item.queue_free()
 			accion_incorrecta()
+			MusicManager.play_error()
 			mostrar_feedback("Se escapo!", Color.ORANGE)
 			perder_vida()
 			_spawnear_objeto()
@@ -181,28 +182,38 @@ func _soltar_item():
 		var pts = CONFIG[GameState.dificultad].puntos_acierto
 		puntaje += pts
 		accion_correcta()
+		MusicManager.play_correct()
 		mostrar_feedback("Correcto! +%d" % pts, Color.GREEN)
 		item_arrastrado.emitir_particulas_acierto()
-		item_arrastrado.get_node("Sprite2D").visible = false  # ← oculta el sprite inmediato
-		item_arrastrado.get_node("CollisionShape2D").disabled = true  # ← desactiva colision
+		item_arrastrado.get_node("Sprite2D").visible = false
+		item_arrastrado.get_node("CollisionShape2D").disabled = true
 		objetos_activos.erase(item_arrastrado)
 		var item_a_borrar = item_arrastrado
-		item_arrastrado = null  # suelta el mouse de inmediato
+		item_arrastrado = null
 		actualizar_hud()
 		if GameState.modo_supervivencia:
 			_actualizar_dificultad_supervivencia()
 		_verificar_victoria()
 		_spawnear_objeto()
-		await get_tree().create_timer(0.6).timeout  # espera que terminen partículas
-		if is_instance_valid(item_a_borrar):
-			item_a_borrar.queue_free()
+		if juego_activo and is_instance_valid(item_a_borrar):
+			await get_tree().create_timer(0.6).timeout
+			if is_instance_valid(item_a_borrar):
+				item_a_borrar.queue_free()
 	else:
 		accion_incorrecta()
+		MusicManager.play_error()
 		mostrar_feedback("Error! Tipo equivocado", Color.RED)
 		item_arrastrado.emitir_particulas_error()
 		perder_vida()
-		item_arrastrado.cayendo = true
+		item_arrastrado.cayendo = false
+		item_arrastrado.visible = false
+		var item_a_borrar = item_arrastrado
 		item_arrastrado = null
+		if juego_activo and is_instance_valid(item_a_borrar):
+			await get_tree().create_timer(0.3).timeout
+			if is_instance_valid(item_a_borrar):
+				objetos_activos.erase(item_a_borrar)
+				item_a_borrar.queue_free()
 
 func _actualizar_dificultad_supervivencia():
 	var nivel_actual = int(puntaje) / int(SURV_INTERVALO_ESCALADO)
@@ -261,12 +272,12 @@ func _cesto_mas_cercano(item) -> Node:
 	return cesto_cercano
 
 func accion_correcta():
-	nivel_contaminacion = clamp(nivel_contaminacion - 0.08, 0.0, 1.0)
+	nivel_contaminacion = clamp(nivel_contaminacion - 0.15, 0.0, 1.0)
 	if material_fondo:
 		material_fondo.set_shader_parameter("contaminacion", nivel_contaminacion)
 
 func accion_incorrecta():
-	nivel_contaminacion = clamp(nivel_contaminacion + 0.15, 0.0, 1.0)
+	nivel_contaminacion = clamp(nivel_contaminacion + 0.35, 0.0, 1.0)
 	if material_fondo:
 		material_fondo.set_shader_parameter("contaminacion", nivel_contaminacion)
 

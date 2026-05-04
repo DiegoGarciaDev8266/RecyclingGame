@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://drw1umatko36d"]
+[gd_scene load_steps=6 format=3 uid="uid://drw1umatko36d"]
 
 [ext_resource type="Script" uid="uid://bedakwkanawam" path="res://Scripts/pantalla_inicio.gd" id="1_qeqs3"]
 [ext_resource type="Texture2D" uid="uid://dew8f2qkhpfy0" path="res://Assets/backgroundColorForest.png" id="2_qeqs3"]
+
+[sub_resource type="SystemFont" id="SystemFont_qeqs3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qeqs3"]
 bg_color = Color(0, 0.7255973, 0.19548908, 1)
@@ -42,33 +44,35 @@ texture = ExtResource("2_qeqs3")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 506.0
-offset_top = 39.0
-offset_right = 658.0
-offset_bottom = 78.0
+offset_left = 475.0
+offset_top = 100.0
+offset_right = 705.0
+offset_bottom = 180.0
 theme_override_colors/font_color = Color(0.889616, 0.90657485, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_qeqs3")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_qeqs3")
-text = "DIFICULTAD"
+text = "NIVEL DE DIFICULTAD"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BtnFacil" type="Button" parent="CanvasLayer"]
-offset_left = 92.0
-offset_top = 175.0
-offset_right = 239.0
-offset_bottom = 247.0
+offset_left = 200.0
+offset_top = 250.0
+offset_right = 375.0
+offset_bottom = 330.0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
 text = "🌱 FÁCIL"
 icon_alignment = 2
 
 [node name="BtnNormal" type="Button" parent="CanvasLayer"]
-offset_left = 512.0
-offset_top = 177.0
-offset_right = 659.0
-offset_bottom = 249.0
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 675.0
+offset_bottom = 330.0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
 text = "♻️ Normal"
@@ -76,20 +80,20 @@ icon_alignment = 2
 metadata/_edit_group_ = true
 
 [node name="BtnDificil" type="Button" parent="CanvasLayer"]
-offset_left = 887.0
-offset_top = 165.0
-offset_right = 1034.0
-offset_bottom = 237.0
+offset_left = 800.0
+offset_top = 250.0
+offset_right = 975.0
+offset_bottom = 330.0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
 text = "☠️ Difícil"
 icon_alignment = 2
 
 [node name="BtnSupervivencia" type="Button" parent="CanvasLayer"]
-offset_left = 513.0
-offset_top = 378.0
-offset_right = 660.0
-offset_bottom = 450.0
+offset_left = 500.0
+offset_top = 400.0
+offset_right = 675.0
+offset_bottom = 480.0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_8elct")
 text = "♾ Supervivencia"
