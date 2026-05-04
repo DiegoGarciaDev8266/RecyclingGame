@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://detwf1pqqrl2n"]
+[gd_scene load_steps=6 format=3 uid="uid://detwf1pqqrl2n"]
 
 [ext_resource type="Script" uid="uid://b1jt6u3tmge66" path="res://Scripts/game_over.gd" id="1_k52d1"]
 [ext_resource type="Texture2D" uid="uid://vcsj4vaedqjb" path="res://Assets/fondo_limpio.png" id="2_k52d1"]
+
+[sub_resource type="SystemFont" id="SystemFont_k52d1"]
+
+[sub_resource type="SystemFont" id="SystemFont_ktc4i"]
+
+[sub_resource type="SystemFont" id="SystemFont_uib17"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_k52d1")
@@ -19,19 +25,23 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="TituloLabel" type="Label" parent="CanvasLayer"]
-offset_left = 292.0
+offset_left = 252.0
 offset_top = 110.0
-offset_right = 832.0
-offset_bottom = 177.0
-theme_override_font_sizes/font_size = 48
+offset_right = 928.0
+offset_bottom = 193.0
+theme_override_fonts/font = SubResource("SystemFont_k52d1")
+theme_override_font_sizes/font_size = 60
 text = "\"!Ganaste¡\" \"GameOver"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PuntajeFinal" type="Label" parent="CanvasLayer"]
-offset_left = 440.0
+offset_left = 500.0
 offset_top = 237.0
-offset_right = 683.0
+offset_right = 800.0
 offset_bottom = 294.0
+theme_override_fonts/font = SubResource("SystemFont_ktc4i")
+theme_override_font_sizes/font_size = 18
 
 [node name="MensajeLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
@@ -40,22 +50,26 @@ offset_left = 362.0
 offset_top = 360.0
 offset_right = 770.0
 offset_bottom = 426.336
+theme_override_fonts/font = SubResource("SystemFont_uib17")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BtnReintentar" type="Button" parent="CanvasLayer"]
 process_mode = 3
-offset_left = 566.0
-offset_top = 473.0
-offset_right = 789.0
-offset_bottom = 535.0
+offset_left = 500.0
+offset_top = 420.0
+offset_right = 723.0
+offset_bottom = 482.0
 text = "↺ Reintentar
 "
 
 [node name="BtnMenu" type="Button" parent="CanvasLayer"]
 process_mode = 3
-offset_left = 325.0
-offset_top = 471.0
-offset_right = 549.0
-offset_bottom = 533.0
+offset_left = 500.0
+offset_top = 520.0
+offset_right = 724.0
+offset_bottom = 582.0
 text = "⌂ Menú"
 
 [connection signal="pressed" from="CanvasLayer/BtnReintentar" to="." method="_on_btn_reintentar_pressed"]

@@ -37,18 +37,14 @@ const TEXTURAS = {
 
 func _ready():
 	input_pickable = true
-	# Sombra siempre activa
-	$Sprite2D.material = MATERIAL_SOMBRA
-	# Tamaño
+	$Sprite2D.material = MATERIAL_SOMBRA.duplicate()
 	$Sprite2D.scale = Vector2(0.13, 0.13)
 	var shape = $CollisionShape2D.shape
 	if shape is RectangleShape2D:
 		shape.size = Vector2(65, 65)
-	# Textura
 	var ruta = TEXTURAS[tipo][variante]
 	if ResourceLoader.exists(ruta):
 		$Sprite2D.texture = load(ruta)
-	# Animación entrada
 	scale = Vector2.ZERO
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BOUNCE)
@@ -62,13 +58,11 @@ func _process(delta):
 func iniciar_arrastre():
 	dragging = true
 	cayendo = false
-	# Cambiar a shader de brillo
-	$Sprite2D.material = MATERIAL_BRILLO
+	$Sprite2D.material = MATERIAL_BRILLO.duplicate()
 
 func soltar():
 	dragging = false
-	# Volver a sombra
-	$Sprite2D.material = MATERIAL_SOMBRA
+	$Sprite2D.material = MATERIAL_SOMBRA.duplicate()
 
 func emitir_particulas_acierto():
 	if has_node("Particulas"):
